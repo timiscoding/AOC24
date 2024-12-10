@@ -48,6 +48,21 @@ public static class InputReader
     {
         return File.ReadAllLines(GetPath(file));
     }
+
+    public static char[,] Get2DArray(string file)
+    {
+        var lines = GetLines(file);
+        char[,] grid = new char[lines.Length, lines[0].Length];
+        for (int y = 0; y < grid.GetLength(0); y++)
+        {
+            for (int x = 0; x < grid.GetLength(1); x++)
+            {
+                grid[y, x] = lines[y][x];
+            }
+        }
+
+        return grid;
+    }
     
     private static string GetPath(string file) => Path.Combine("../../../", "Inputs", file);
 
