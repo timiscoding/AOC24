@@ -3,7 +3,7 @@ using AOC24.Solutions;
 
 namespace AOC24.Tests;
 
-public class Tests
+public class Day06Tests
 {
     [SetUp]
     public void Setup()

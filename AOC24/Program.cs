@@ -6,6 +6,6 @@ class Program
 {
     static void Main()
     {
-        Day06.Solve();
+        Day07.Solve();
     }
 }
