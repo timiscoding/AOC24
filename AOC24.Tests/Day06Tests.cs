@@ -5,11 +5,6 @@ namespace AOC24.Tests;
 
 public class Day06Tests
 {
-    [SetUp]
-    public void Setup()
-    {
-    }
-
     [Test]
     public void Guard_CreateInstance_ShouldSetGuardOrigin()
     {

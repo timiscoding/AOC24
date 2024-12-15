@@ -18,3 +18,5 @@ public record struct Heading(int X, int Y) : IPoint
     public static readonly Heading Down = new (0, 1);
     public static readonly Heading Left = new (-1, 0);
 }
+
+public record struct Bounds(int MinX, int MaxX, int MinY, int MaxY) { }
