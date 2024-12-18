@@ -52,7 +52,7 @@ public static class InputReader
     public static char[,] Get2DArray(string file)
     {
         var lines = GetLines(file);
-        char[,] grid = new char[lines.Length, lines[0].Length];
+        var grid = new char[lines.Length, lines[0].Length];
         for (int y = 0; y < grid.GetLength(0); y++)
         {
             for (int x = 0; x < grid.GetLength(1); x++)
