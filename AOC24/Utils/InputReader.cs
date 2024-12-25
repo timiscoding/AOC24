@@ -42,7 +42,7 @@ public static class InputReader
 
     public static string GetText(string file)
     {
-        return File.ReadAllText(GetPath(file));
+        return File.ReadAllText(GetPath(file)).Trim();
     }
     public static string[] GetLines(string file)
     {
