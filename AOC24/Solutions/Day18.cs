@@ -16,13 +16,19 @@ public static class Day18
     {
         var bytes = GetBytes(InputReader.GetLines("Day18.txt"));
         Console.WriteLine($"Day 18 - Part 1 Shortest path: {ShortestPath(bytes.Take(Corrupted).ToHashSet())}");
-        Console.WriteLine($"Day 18 - Part 2 First byte with unreachable path: {FindSplitGraph(bytes.ToList(), Corrupted)}");
+        Console.WriteLine($"Day 18 - Part 2 First byte with unreachable path: {FindSplitGraph(bytes.ToList())}");
     }
 
-    public static Complex FindSplitGraph(List<Complex> bytes, int corrupted)
+    public static Complex FindSplitGraph(List<Complex> bytes)
     {
-        while (ShortestPath(bytes.Take(corrupted).ToHashSet()) != -1) corrupted++;
-        return bytes[corrupted - 1];
+        var (lo, hi) = (0, bytes.Count);
+        while (hi - lo > 1)
+        {
+            var m = (lo + hi) / 2;
+            if (ShortestPath(bytes.Take(m).ToHashSet()) == -1) hi = m;
+            else lo = m;
+        }
+        return bytes[lo];
     }
 
     public static int ShortestPath(HashSet<Complex> bytes)
@@ -53,7 +59,6 @@ public static class Day18
                 }
             }
         }
-        
         return -1;
         
         bool InsideGrid(Complex pos) => pos.Real >= 0 && pos.Imaginary <= 0 && pos.Real < Width && pos.Imaginary > -Height;
